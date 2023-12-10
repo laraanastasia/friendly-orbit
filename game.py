@@ -13,8 +13,10 @@ font = pygame.font.Font('font/Pixeltype.ttf',50)
 sky_surface = pygame.image.load('graphics/Sky.png')
 ground_surface = pygame.image.load('graphics/ground.png')
 #text you want to display ; smothe edges ; color
-text_surface = font.render('Fast Guy',False,'Green')
-
+text_surface = font.render('Fast Guy',False,'Black')
+enemy1_surface = pygame.image.load('graphics/enemy1/snail1.png')
+#variable for position of enemy one to be able to animate movement
+enemy1_var_pos =600
 #run code invinitively to make gaming possible
 while True:
     # never run code without this-you wont be able to close it on its own
@@ -27,6 +29,8 @@ while True:
     screen.blit(sky_surface,(0,0))
     screen.blit(ground_surface,(0,300))
     screen.blit(text_surface,(300,50))
+    enemy1_var_pos -= 1
+    screen.blit(enemy1_surface,(enemy1_var_pos,250))
     pygame.display.update()
     #use clock.tick to set frame rate to make sure game runs consistant
-    clock.tick(60)
+    clock.tick(60) 
