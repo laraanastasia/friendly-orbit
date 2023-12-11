@@ -2,11 +2,15 @@ import pygame
 from sys import exit
 
 #start pygame
+
 pygame.init()
 screen = pygame.display.set_mode((800,400))
+
 #set name of shell
+
 pygame.display.set_caption("fast guy")
 clock = pygame.time.Clock()
+
 #creating text: 1. create font ; 2. write text on surface ; 3. blit text on screen
 font = pygame.font.Font('font/Pixeltype.ttf',50)
 #import image onto suface (convert makes the image easier for python to work with)
