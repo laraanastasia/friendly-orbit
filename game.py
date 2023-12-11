@@ -28,7 +28,7 @@ enemy1_var_pos =600
 enemy2_var_pos = 600
 enemy3_var_pos = 600
 enemy4_var_pos = 600
-enemy2_var_hight = 600
+enemy2_var_hight = 264
 #run code infinitive to make gaming possible
 while True:
     # never run code without this-you wont be able to close it on its own
@@ -48,17 +48,16 @@ while True:
     enemy2_var_pos -= 10
     enemy3_var_pos -= 13
     enemy4_var_pos -= 7
-    enemy2_var_hight -= 10
+    enemy2_var_hight -= 2
     # if statement to make sure snail comes back 
     if enemy1_var_pos < -100 : enemy1_var_pos = 800
     screen.blit(enemy1_surface,(enemy1_var_pos,264))
     if enemy2_var_pos < -100 : enemy2_var_pos = 800
-    if enemy2_var_hight < 20 : enemy2_var_hight = 300
+    if enemy2_var_hight < 20 : enemy2_var_hight = 264
     screen.blit(enemy2_surface,(enemy2_var_pos,enemy2_var_hight))
     if enemy3_var_pos < -100 : enemy3_var_pos = 800
     screen.blit(enemy3_surface,(enemy3_var_pos,50))
     if enemy4_var_pos < -100 : enemy4_var_pos = 800
-    if enemy2_var_hight < 264 : enemy2_var_hight = 300
     screen.blit(enemy4_surface,(enemy4_var_pos,264))
     
     pygame.display.update()
