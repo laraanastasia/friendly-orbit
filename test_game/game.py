@@ -11,18 +11,18 @@ pygame.display.set_caption("fast guy")
 clock = pygame.time.Clock()
 
 #creating text: 1. create font ; 2. write text on surface ; 3. blit text on screen
-font = pygame.font.Font('font/Pixeltype.ttf',50)
+font = pygame.font.Font('test_game/font/Pixeltype.ttf',50)
 
 #import image onto suface (convert makes the image easier for python to work with)
-sky_surface = pygame.image.load('graphics/Sky.png').convert()
-ground_surface = pygame.image.load('graphics/ground.png').convert()
+sky_surface = pygame.image.load('test_game/graphics/Sky.png').convert()
+ground_surface = pygame.image.load('test_game/graphics/ground.png').convert()
 
 #text you want to display ; smothe edges ; color
 text_surface = font.render('Fast Guy',False,'Black') 
-enemy1_surface = pygame.image.load('graphics/enemy1/snail1.png').convert_alpha() # _alpha to ignore the alpha part of the image
-enemy2_surface = pygame.image.load('graphics/enemy2/Fly1.png').convert_alpha()
-enemy3_surface = pygame.image.load('graphics/enemy2/Fly1.png').convert_alpha()
-enemy4_surface = pygame.image.load('graphics/enemy1/snail1.png').convert_alpha()
+enemy1_surface = pygame.image.load('test_game/graphics/enemy1/snail1.png').convert_alpha() # _alpha to ignore the alpha part of the image
+enemy2_surface = pygame.image.load('test_game/graphics/enemy2/Fly1.png').convert_alpha()
+enemy3_surface = pygame.image.load('test_game/graphics/enemy2/Fly1.png').convert_alpha()
+enemy4_surface = pygame.image.load('test_game/graphics/enemy1/snail1.png').convert_alpha()
 #variable for position of enemy one to be able to animate movement
 enemy1_var_pos =600
 enemy2_var_pos = 600
