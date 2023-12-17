@@ -1,14 +1,16 @@
 import pygame,sys
 from settings import *
 class Game:
-    def _init_(self):
+	def __init__(self):
+		  
+		# general setup
+		pygame.init()
+		self.screen = pygame.display.set_mode((WIDTH,HEIGTH))
+		pygame.display.set_caption('little divine Seraphina')
+		self.clock = pygame.time.Clock()
 
-        pygame.init()
-        self.screen = pygame.display.set_mode((WIDTH,HEIGTH))
-        self.clock = pygame.time.Clock()
-
-    def run(self):
-        while True:
+def run(self):
+        while True: #event loop
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
