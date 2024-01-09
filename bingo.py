@@ -1,11 +1,15 @@
 import json
+class Jokes:
+    def __init__(self, Joke, JID):
+        self.Joke=Joke
+        self.JID=JID
+        
 
 f= open('jokes.json')
 entries = json.load(f)
 
 for i in entries:
     print(i)
-
 
 f.close()
 
