@@ -8,22 +8,21 @@ class Jokes:
 #entries = json.load(f)
 
 #for i in entries:
- #   print(i)
+  #  print(i)
 
 #f.close()    
 
-with open("jokes.json","r") as file:
-    data=json.load(file)
-date=data["data"]["date"]
-jokes_data= data["data"]["jokes_data"]
-
-print(f"{date}:{jokes_data}")
-#jokesList = []
-#with open('jokes.json')as f:
- #   for jsonObj in f:
- #       jokeDict = json.loads(jsonObj)
- #       jokesList.append(jokeDict)
-
+##with open("jokes.json","r") as file:
+   # data=json.load(file)
+##date=data["data"]["date"]
+##jokes_data= data["data"]["jokes_data"]
+##print(f"{date}:{jokes_data}")
+jokesList = []
+with open('jokes.json')as f:
+    for jsonObj in f:
+        jokeDict = json.loads(jsonObj)
+        jokesList.append(jokeDict)
+print(jokesList)
 
 
 
