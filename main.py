@@ -1,7 +1,8 @@
 from typing import Final
 import os
-from dotenv import load_dotenv
+from discord.ext import commands
 from discord import Intents, Client,Message
+from dotenv import load_dotenv
 from response import get_response
 
 #load token
@@ -12,7 +13,8 @@ TOKEN: Final[str]= os.getenv('DISCORD_TOKEN')
 #BOT SETUP
 intents:Intents = Intents.default()
 intents.message_content = True #NOQA
-client: Client = Client(intents=intents)
+bot= commands.Bot(command_prefix="cat!",intents=intents)
+#client.remove_command("help")
 
 #Message Functionality
 
@@ -31,14 +33,14 @@ async def send_message(message:Message, user_message: str)-> None:
 
 #Startup
 
-@client.event
+@bot.event
 async def on_ready() -> None:
-    print(f'{client.user} is now purring!')
+    print(f'{bot.user} is now purring!')
 
 # Incoming Messages
-@client.event
+@bot.event
 async def on_message(message: Message)-> None:
-    if message.author == client.user:
+    if message.author == bot.user:
         return
     
     username: str=str(message.author)
@@ -50,7 +52,7 @@ async def on_message(message: Message)-> None:
 
 #main entry point
 def main()-> None:
-    client.run(token=TOKEN)
+    bot.run(token=TOKEN)
 
 if __name__ == '__main__':
     main()
