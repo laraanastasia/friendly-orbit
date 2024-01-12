@@ -23,9 +23,6 @@ async def no(ctx):
 @bot.command()
 async def yes(ctx):
     await ctx.send("https://tenor.com/view/yes-yescat-cat-nodding-nod-gif-21702876")
-@bot.command()
-async def bunny(ctx):
-    await ctx.send("https://tenor.com/view/cats-cat-bunny-shake-head-gif-24738682")
 
 @bot.command()
 async def scream(ctx):
@@ -44,7 +41,23 @@ async def rand(ctx):
     catgif_list= ["https://tenor.com/view/cat-gif-27443459","https://tenor.com/view/angry-cat-triggered-ahhh-meeeeoow-gif-16764869","https://tenor.com/view/goofy-cat-cat-cat-dance-cat-funny-funny-gif-13226486845730141702","https://tenor.com/view/crunch-cat-luna-eat-gif-3997701764820700221","https://tenor.com/view/chipi-chapa-dubi-dubidu-boom-gif-17214381249162738138","https://tenor.com/view/cat-gif-21186965","https://tenor.com/view/cat-huh-cat-huh-etr-gif-15332443943609734737","https://tenor.com/view/cat-apple-gif-21978863","https://tenor.com/view/no-nope-cat-cute-gif-4544032","https://tenor.com/view/yes-yescat-cat-nodding-nod-gif-21702876","https://tenor.com/view/cats-cat-bunny-shake-head-gif-24738682","https://tenor.com/view/cry-crying-cat-crying-cat-cry-why-gif-27571714",]
     i=random.choice(catgif_list)
     await ctx.send(i)
+@bot.command()
+async def love(ctx):
+    await ctx.send("""
+     ∧,,,∧
+(  ̳• · • ̳)
+/    づ♡ 
+                   """)
 
+@bot.command()
+async def list(ctx):
+    await ctx.send(""""
+    cat!no
+    cat!yes
+    cat!love
+    cat!scream
+    cat!random
+                   """)
 
 #Startup
 
