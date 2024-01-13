@@ -58,6 +58,10 @@ async def list(ctx):
     cat!scream
     cat!random
                    """)
+    
+@bot.command()
+async def alex(ctx):
+    await ctx.send("https://tenor.com/view/put-out-the-candle-put-it-out-birthday-cat-candles-out-neatdad-gif-2956237863302866726")  
 
 #Startup
 
