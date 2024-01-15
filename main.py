@@ -55,7 +55,10 @@ async def love(ctx):
 async def hi(interaction: discord.Interaction):
     await interaction.response.send_message(f"Hey {interaction.user.mention}! This is a slash command!")
     
-
+@bot.tree.command(description="Sends the bot's latency.") 
+async def ping(ctx): 
+    await ctx.respond(f"Pong! Latency is {bot.latency}")
+    
 #Startup
 
 @bot.event
@@ -67,18 +70,7 @@ async def on_ready():
     except Exception as e:
         print(e)
 
-# Incoming Messages
-#@bot.event
-#async def on_message(message: Message)-> None:
- #   if message.author == bot.user:
- #       return
-    
-  #  username: str=str(message.author)
-  #  user_message: str = message.content
-  #  channel: str = str(message.channel)
-
-  #  print(f'[{channel}] {username}: "{user_message}')
-    
+ 
 
 #main entry point
 def main()-> None:
