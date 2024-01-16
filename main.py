@@ -55,10 +55,11 @@ async def love(ctx):
 async def hi(interaction: discord.Interaction):
     await interaction.response.send_message(f"Hey {interaction.user.mention}! This is a slash command!")
     
-@bot.tree.command(description="Sends the bot's latency.") 
-async def ping(ctx): 
-    await ctx.respond(f"Pong! Latency is {bot.latency}")
-    
+@bot.tree.command(name="ping",description="Sends the bot's latency.") 
+async def ping(interaction:discord.Interaction): 
+    await interaction.response.send_message(f"Pong,{interaction.user.mention}! Latency is {bot.latency}")
+
+
 #Startup
 
 @bot.event
