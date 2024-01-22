@@ -53,12 +53,22 @@ async def love(ctx):
 
 @bot.tree.command(name="hi")
 async def hi(interaction: discord.Interaction):
-    await interaction.response.send_message(f"Hey {interaction.user.mention}! This is a slash command!")
+    await interaction.response.send_message(f"Hey {interaction.user.mention}! Nice to see you!")
+
+@bot.tree.command(name="bye", description="bye")
+async def bye(interaction: discord.Interaction):
+    await interaction.response.send_message(f"{interaction.user.mention},es war katazisch mit dir zu reden ^^")
     
 @bot.tree.command(name="ping",description="Sends the bot's latency.") 
 async def ping(interaction:discord.Interaction): 
     await interaction.response.send_message(f"Pong,{interaction.user.mention}! Latency is {bot.latency}")
 
+@bot.tree.command(name="anon_request", description="Do not worry about losing your face, nobody will know that it was you! ")
+@app_commands.describe (suggestion = "What is your request?")
+async def suggestion(interaction: discord.Interaction, suggestion: str):
+    print(f'User: {interaction.user.name}, Suggestion: {suggestion}, Guild: {interaction.guild}, Channel: {interaction.channel}')
+    await interaction.response.send_message (f'Add suggestion: {suggestion}', ephemeral=True)
+    await interaction.channel.send (f'suggestion: {suggestion}')
 
 #Startup
 
