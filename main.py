@@ -5,7 +5,7 @@ from discord import app_commands
 from discord.ext import commands
 from dotenv import load_dotenv
 import random
-
+import weather
 import requests 
 
 #load token
@@ -68,7 +68,12 @@ async def ping(interaction:discord.Interaction):
 async def suggestion(interaction: discord.Interaction, suggestion: str):
     print(f'User: {interaction.user.name}, Suggestion: {suggestion}, Guild: {interaction.guild}, Channel: {interaction.channel}')
     await interaction.response.send_message (f'Add suggestion: {suggestion}', ephemeral=True)
-    await interaction.channel.send (f'suggestion: {suggestion}')
+    await interaction.channel.send (f"{suggestion}")
+
+@bot.tree.command(name="temperatur")
+async def temperatur(interaction: discord.Interaction):
+    temp=weather.getweather()
+    await interaction.response.send_message(f"Hallo {interaction.user.mention}! Die max und min Temperaturen in Mosbach für die nächste Woche lauten: {temp} ")
 
 #Startup
 
