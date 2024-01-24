@@ -8,6 +8,7 @@ import random
 import weather
 import requests 
 
+
 #load token
 load_dotenv()
 TOKEN: Final[str]= os.getenv('DISCORD_TOKEN')
@@ -75,7 +76,41 @@ async def temperatur(interaction: discord.Interaction):
     temp=weather.getweather()
     await interaction.response.send_message(f"Hallo {interaction.user.mention}! Die max und min Temperaturen in Mosbach für die nächste Woche lauten: {temp} ")
 
+@bot.tree.command(name="tarot",description="Whats your destiny?") 
+async def tarot(interaction: discord.Interaction):
+    #read card file as lines and choose random line to output
+    with open("card.txt", "r") as file1:
+        card_options = file1.read().splitlines()
+        response_card = random.choice(card_options)
+        card = str(response_card)
+        print(card)
+    #compare card to find corresponding description for the card chosen
+    with open("upright.txt", "r") as file2, open("reversed.txt", "r") as file3:
+        uprights=file2.readlines()
+        reverseds=file3.readlines()
+
+        for line in reverseds:
+            if (card+" : ") in line:
+                description = str(line)
+                reading = (description.split(':', 1)[-1])
+                print(reading)
+            else:
+                for line in uprights:
+                    if (card+" : ") in line:
+                        description = str(line)
+                        reading = (description.split(':', 1)[-1])
+                        print(reading)
+        await interaction.response.send_message("your card : "+card+"\n"+"your card's reading : "+reading)
+
+#start-up loads
+
+
+
+
 #Startup
+    
+t=weather.getlatitude("74838")
+print(t)
 
 @bot.event
 async def on_ready():
