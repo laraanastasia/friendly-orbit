@@ -5,8 +5,6 @@ from discord import app_commands
 from discord.ext import commands
 from dotenv import load_dotenv
 import random
-import weather
-import requests 
 
 
 #load token
@@ -71,11 +69,6 @@ async def suggestion(interaction: discord.Interaction, suggestion: str):
     await interaction.response.send_message (f'Add suggestion: {suggestion}', ephemeral=True)
     await interaction.channel.send (f"{suggestion}")
 
-@bot.tree.command(name="temperatur")
-async def temperatur(interaction: discord.Interaction):
-    temp=weather.getweather()
-    await interaction.response.send_message(f"Hallo {interaction.user.mention}! Die max und min Temperaturen in Mosbach für die nächste Woche lauten: {temp} ")
-
 @bot.tree.command(name="tarot",description="Whats your destiny?") 
 async def tarot(interaction: discord.Interaction):
     #read card file as lines and choose random line to output
@@ -109,8 +102,7 @@ async def tarot(interaction: discord.Interaction):
 
 #Startup
     
-t=weather.getlatitude("74838")
-print(t)
+
 
 @bot.event
 async def on_ready():
