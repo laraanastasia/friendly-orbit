@@ -5,7 +5,7 @@ from discord import app_commands
 from discord.ext import commands
 from dotenv import load_dotenv
 import random
-
+import tt
 
 #load token
 load_dotenv()
@@ -70,32 +70,14 @@ async def suggestion(interaction: discord.Interaction, suggestion: str):
     await interaction.channel.send (f"{suggestion}")
 
 @bot.tree.command(name="tarot",description="Whats your destiny?") 
-async def tarot(interaction: discord.Interaction):
-    #read card file as lines and choose random line to output
-    with open("card.txt", "r") as file1:
-        card_options = file1.read().splitlines()
-        response_card = random.choice(card_options)
-        card = str(response_card)
-        print(card)
-    #compare card to find corresponding description for the card chosen
-    with open("upright.txt", "r") as file2, open("reversed.txt", "r") as file3:
-        uprights=file2.readlines()
-        reverseds=file3.readlines()
+@app_commands.describe(amount="How many cards do you want to pull?")
+async def tarot(interaction: discord.Interaction,amount:str):
+    x,y= tt.pull(amount)
+    print(y)
+    await interaction.response.send_message(y)
+    
 
-        for line in reverseds:
-            if (card+" : ") in line:
-                description = str(line)
-                reading = (description.split(':', 1)[-1])
-                print(reading)
-            else:
-                for line in uprights:
-                    if (card+" : ") in line:
-                        description = str(line)
-                        reading = (description.split(':', 1)[-1])
-                        print(reading)
-        await interaction.response.send_message("your card : "+card+"\n"+"your card's reading : "+reading)
-
-#start-up loads
+#"your card : "+x+"\n"+"your card's reading : "+y
 
 
 
