@@ -5,7 +5,7 @@ from discord import app_commands
 from discord.ext import commands
 from dotenv import load_dotenv
 import random
-import tt
+import Karten
 
 #load token
 load_dotenv()
@@ -71,10 +71,10 @@ async def suggestion(interaction: discord.Interaction, suggestion: str):
 
 @bot.tree.command(name="tarot",description="Whats your destiny?") 
 @app_commands.describe(amount="How many cards do you want to pull?")
-async def tarot(interaction: discord.Interaction,amount:str):
-    x,y= tt.pull(amount)
-    print(y)
-    await interaction.response.send_message(y)
+async def tarot(interaction: discord.Interaction,amount:int):
+    x= Karten.ziehen(amount)
+    print(x)
+    await interaction.response.send_message(x)
     
 
 #"your card : "+x+"\n"+"your card's reading : "+y
