@@ -72,9 +72,9 @@ async def suggestion(interaction: discord.Interaction, suggestion: str):
 @bot.tree.command(name="tarot",description="Whats your destiny?") 
 @app_commands.describe(amount="How many cards do you want to pull?")
 async def tarot(interaction: discord.Interaction,amount:int):
-    x= Karten.ziehen(amount)
-    print(x)
-    await interaction.response.send_message(x)
+    x= Karten.feature(amount)
+    await interaction.response.send_message (f'You pulled {amount} cards ', ephemeral=True)
+    await interaction.channel.send(embed=x)
     
 
 #"your card : "+x+"\n"+"your card's reading : "+y
