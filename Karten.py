@@ -22,12 +22,15 @@ def ziehen(x):
             
         else:
             Bedeutungen.append(Gedreht[index])
+           
+            
     return Gezogen,Bedeutungen
 
 
 def make_embed(x,Karten,Bedeutungen):
     embed = discord.Embed(title="Your destiny", color=0xD9A4FC)  
+    embed.set_thumbnail(url="https://i.kym-cdn.com/entries/icons/original/000/038/748/Screen_Shot_2021-11-03_at_12.03.40_PM.png")
     for i in range(x):
-        embed.add_field(name=Karten[i], value=f"Reading: {Bedeutungen[i]}", inline=True)
+        embed.add_field(name=Karten[i], value=f"{'-'*15}\nReading:\n {Bedeutungen[i]}\n{'-'*15}", inline=False)
     
     return embed

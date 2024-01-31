@@ -77,7 +77,7 @@ async def tarot(interaction: discord.Interaction,amount:int):
     await interaction.channel.send(embed=x)
     
 
-#"your card : "+x+"\n"+"your card's reading : "+y
+
 
 
 
