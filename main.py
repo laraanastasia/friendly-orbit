@@ -62,6 +62,7 @@ async def bye(interaction: discord.Interaction):
 async def ping(interaction:discord.Interaction): 
     await interaction.response.send_message(f"Pong,{interaction.user.mention}! Latency is {bot.latency}")
 
+
 @bot.tree.command(name="anon_request", description="Do not worry about losing your face, nobody will know that it was you! ")
 @app_commands.describe (suggestion = "What is your request?")
 async def suggestion(interaction: discord.Interaction, suggestion: str):
@@ -69,12 +70,18 @@ async def suggestion(interaction: discord.Interaction, suggestion: str):
     await interaction.response.send_message (f'Add suggestion: {suggestion}', ephemeral=True)
     await interaction.channel.send (f"{suggestion}")
 
-@bot.tree.command(name="tarot",description="Whats your destiny?") 
-@app_commands.describe(amount="How many cards do you want to pull?")
-async def tarot(interaction: discord.Interaction,amount:int):
-    x= Karten.feature(amount)
-    await interaction.response.send_message (f'You pulled {amount} cards ', ephemeral=True)
+@bot.tree.command(name="cat",description="Give a random cat ")
+async def cat(interaction:discord.Interaction):
+    x=Karten.makecat()
+    await interaction.response.send_message (f'You want a cat??? YOU WILL GET CAT', ephemeral=True)
     await interaction.channel.send(embed=x)
+
+#@bot.tree.command(name="tarot",description="Whats your destiny?") 
+#@app_commands.describe(amount="How many cards do you want to pull?")
+#async def tarot(interaction: discord.Interaction,amount:int):
+  #  x= Karten.feature(amount)
+  #  await interaction.response.send_message (f'You pulled {amount} cards ', ephemeral=True)
+  #  await interaction.channel.send(embed=x)
     
 
 
