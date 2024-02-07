@@ -6,6 +6,7 @@ from discord.ext import commands
 from dotenv import load_dotenv
 import random
 import Karten
+import Astrology
 
 #load token
 load_dotenv()
@@ -84,7 +85,11 @@ async def cat(interaction:discord.Interaction):
   #  await interaction.channel.send(embed=x)
     
 
-
+@bot.tree.command(name="signs",description="Gives a list of all astrology signs ")
+async def signs(interaction:discord.Interaction):
+    x=Astrology.make_embed()
+    await interaction.response.send_message (f'Here is your list :) ', ephemeral=True)
+    await interaction.channel.send(embed=x)
 
 
 

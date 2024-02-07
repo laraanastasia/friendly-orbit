@@ -36,8 +36,7 @@ def make_embed(x,Karten,Bedeutungen):
     return embed
 
 def makecat():
-    response=requests.get("https://cataas.com/cat")
-    print(response)
+    
     embeda = discord.Embed(title="Random cat!", color=0xD9A4FC) 
     embeda.set_image(url="https://cataas.com/cat")
     return embeda
